@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'Api.dart';
-
-enum HttpType { kGet, kPost, kPut, kDelete }
+import 'HttpRequest.dart';
 
 class HttpTool {
   factory HttpTool() => _sharedInstance();
@@ -11,16 +10,10 @@ class HttpTool {
   HttpTool._() {
     // 初始化
     dio = new Dio();
-    BaseOptions options = new BaseOptions(
-        baseUrl: Api.BaseUrl,
-        connectTimeout: ConnectTime,
-        receiveTimeout: ReceiveTime);
+
   }
 
   static Dio dio;
-  
-  static const int ConnectTime = 10000;
-  static const int ReceiveTime = 3000;
 
   static HttpTool _sharedInstance() {
     if (_instance == null) {
@@ -28,21 +21,27 @@ class HttpTool {
     }
     return _instance;
   }
-
-  static void request(String url,Map<String, dynamic> data, String method,Map<String, dynamic> headers,Function success,Function failure) async {
-
+  //全局配置
+  void setConfig(String baseUrl, int timeOut) {
+    BaseOptions options = new BaseOptions(
+        baseUrl: baseUrl,
+        connectTimeout: timeOut * 1000,
+        receiveTimeout: 3000);
+    dio.options = options;
+  }
+  //发起请求
+  void sendRequest(HttpRequest request, Function success,
+      Function failure) async {
     try {
-      Response response = await dio.request(url, data: data ?? {} ,options: new Options(method: method ?? 'get',headers: headers ?? {}));
-      if (success != null){
-        success(response.data);
-        print(response.data)
-      }
-    } catch (exception){
-        if (failure != null){
-          failure(exception);
-        }
+      Response res = await dio.request(request.url,
+          data: request.params,
+          options: new Options(
+              method: HttpRequest.getTypeString(request.type),
+              headers: request.headers,
+              connectTimeout: request.timeOut != null ? request.timeOut * 1000 : dio.options.connectTimeout));
+      print(res.data);
+    } catch (exception) {
+      print('98765' + exception.toString());
     }
-
-
   }
 }
