@@ -39,9 +39,15 @@ class HttpTool {
               method: HttpRequest.getTypeString(request.type),
               headers: request.headers,
               connectTimeout: request.timeOut != null ? request.timeOut * 1000 : dio.options.connectTimeout));
-      print(res.data);
+      if (success != null){
+        success(res.toString());
+      }
+      print(res.toString());
     } catch (exception) {
       print('98765' + exception.toString());
+      if (failure != null){
+        failure(exception.toString());
+      }
     }
   }
 }

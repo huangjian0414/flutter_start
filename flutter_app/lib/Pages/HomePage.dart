@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/Http/HttpTool.dart';
 import 'package:flutter_app/Http/HttpRequest.dart';
+import 'package:flutter_app/Model/ResponseModel.dart';
+import 'dart:convert';
 class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,10 +16,16 @@ class homePage extends StatelessWidget {
     req.type = HttpType.kPost;
     req.params = {'app_id':'0b4c4e80f73f11e7804bfa163e431402','vc_type':0,'login_name':'18321937749'};
     HttpTool().sendRequest(req, (data){
+      Map responseMap = jsonDecode(data);
+      var user = ResponseModel.fromJson(responseMap);
 
+      print(user.meta.message);
+      print(data);
     }, (error){
 
     });
+
+
     // TODO: implement build
     return CupertinoPageScaffold(
       child: Center(child: Text('主页')),
