@@ -16,11 +16,18 @@ class LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return CupertinoPageScaffold(
-        child: Container(child: Image(
-          image: new AssetImage('Images/登录背景.png'),
-          height: 200,),
-          padding: new EdgeInsets.only(left: 0, right: 0),
-          alignment: Alignment.bottomCenter,)
-    );
+      backgroundColor: Color(0xFF63BBF7),
+      child: Container(child: new Column(children: <Widget>[
+        Container(
+            child: Image(image: new AssetImage('Images/登录背景.png'), height: 200),
+            padding: new EdgeInsets.only(left: 0, right: 0),
+            alignment: Alignment.bottomCenter)
+        , Container(
+          child: Text('hahah'),
+          alignment: Alignment.center,
+          padding: new EdgeInsets.only(left: 0, right: 0, bottom: 200),)
+      ], verticalDirection: VerticalDirection.up,))
+      ,);
   }
 }
+
