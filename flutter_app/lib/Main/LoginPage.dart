@@ -17,16 +17,20 @@ class LoginPageState extends State<LoginPage> {
     // TODO: implement build
     return CupertinoPageScaffold(
       backgroundColor: Color(0xFF63BBF7),
-      child: Container(child: new Column(children: <Widget>[
-        Container(
-            child: Image(image: new AssetImage('Images/登录背景.png'), height: 200),
-            padding: new EdgeInsets.only(left: 0, right: 0),
-            alignment: Alignment.bottomCenter)
-        , Container(
-          child: Text('hahah'),
-          alignment: Alignment.center,
-          padding: new EdgeInsets.only(left: 0, right: 0, bottom: 200),)
-      ], verticalDirection: VerticalDirection.up,))
+      child:
+        Stack(children: <Widget>[
+          Positioned(child: Text('000000',textAlign: TextAlign.center,),left: 0,right: 0,top: 100),
+          Positioned(child: Text('1234566'),left: 0,right: 0,top: 300),
+          Positioned(child: Image(image: AssetImage('Images/登录背景.png')),left: 0,right: 0,bottom: 0,),
+          Column(
+            children: <Widget>[
+              Container(
+                child: Text('hkbksgak'), margin: EdgeInsets.only(top: 0),),
+              Container(child: Text('hk999999'),
+                margin: EdgeInsets.only(top: 200),
+                alignment: Alignment.bottomCenter,)
+            ],)
+        ],)
       ,);
   }
 }
