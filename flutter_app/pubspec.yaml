@@ -74,6 +74,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
-    - Images/登录背景.png
+    - Images/
     - Images/2.0x/
     - Images/3.0x/
