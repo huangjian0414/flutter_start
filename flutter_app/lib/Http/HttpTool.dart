@@ -32,6 +32,7 @@ class HttpTool {
   //发起请求
   void sendRequest(HttpRequest request, Function success,
       Function failure) async {
+    print(dio.options.baseUrl + request.url);
     try {
       Response res = await dio.request(request.url,
           data: request.params,
@@ -44,7 +45,7 @@ class HttpTool {
       }
       print(res.toString());
     } catch (exception) {
-      print('98765' + exception.toString());
+      print(exception);
       if (failure != null){
         failure(exception.toString());
       }

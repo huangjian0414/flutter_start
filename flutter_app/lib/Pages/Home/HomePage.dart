@@ -8,22 +8,22 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    HttpTool().setConfig('https://cnapi.fogcloud.io/v3_1', 10); //全局配置host,timeout
+
 
     //单个请求
-    HttpRequest req = HttpRequest();
-    req.url = '/enduser/verCode/';
-    req.type = HttpType.kPost;
-    req.params = {'app_id':'0b4c4e80f73f11e7804bfa163e431402','vc_type':0,'login_name':'18321937749'};
-    HttpTool().sendRequest(req, (data){
-      Map responseMap = jsonDecode(data);
-      var user = ResponseModel.fromJson(responseMap);
-
-      print(user.meta.message);
-      print(data);
-    }, (error){
-
-    });
+//    HttpRequest req = HttpRequest();
+//    req.url = '/enduser/verCode/';
+//    req.type = HttpType.kPost;
+//    req.params = {'app_id':'0b4c4e80f73f11e7804bfa163e431402','vc_type':0,'login_name':'18321937749'};
+//    HttpTool().sendRequest(req, (data){
+//      Map responseMap = jsonDecode(data);
+//      var user = ResponseModel.fromJson(responseMap);
+//
+//      print(user.meta.message);
+//      print(data);
+//    }, (error){
+//
+//    });
 
 
     // TODO: implement build
