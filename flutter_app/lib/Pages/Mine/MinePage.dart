@@ -7,10 +7,10 @@ class minePage extends StatelessWidget {
     // TODO: implement build
     return CupertinoPageScaffold(
         child: Center(
-          child: Text('都是些什么'),
+          child: Text('暂时没有东西'),
         ),
         navigationBar: CupertinoNavigationBar(
-          middle: Text('啥发现'),
+          middle: Text('个人中心'),
           trailing: Text('别看了老弟'),
         ));
   }

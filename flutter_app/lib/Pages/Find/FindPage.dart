@@ -10,8 +10,7 @@ class findPage extends StatelessWidget {
         child: Text('发现了啥'),
       ),
       navigationBar: CupertinoNavigationBar(
-        middle: Text('发现了吗'),
-        trailing: Text('再见老弟'),
+        middle: Text('发现'),
       ),
     );
   }
