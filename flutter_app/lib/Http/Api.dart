@@ -1,5 +1,5 @@
 class Api {
-  static const String BaseUrl = "https://cnapi.fogcloud.io/v3_1";
+  static const String BaseUrl = "https://xxxx/v3_1";
 
   static const String GetVerCode = "/enduser/verCode/";
 
